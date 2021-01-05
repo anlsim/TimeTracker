@@ -1,0 +1,57 @@
+﻿@model LWTechTaskTimeTracker.Models.CreateCompletedTaskViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}<center>
+    <h1>Create New task</h1>
+</center>
+<hr />
+<div class="row">
+    <div class="col-lg-4 col-md-12">
+        <img src="https://img.icons8.com/clouds/2x/survey.png" class="img-rounded" alt="Cinque Terre">
+
+    </div>
+    <div class="col-lg-8 col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dateTime" class="control-label"></label>
+                <input asp-for="dateTime" class="form-control" />
+                <span asp-validation-for="dateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <select asp-for="CategoryId" class="form-control">
+                    @foreach (var Category in Model.categories)
+                    {
+                        var currentUser = User.Identity;
+
+
+                        string name = Category.Name;
+
+                        <option value=@Category.Id>@name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

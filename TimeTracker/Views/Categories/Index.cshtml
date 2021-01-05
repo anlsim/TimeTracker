@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LWTechTaskTimeTracker.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+
+
+<div class="btn-block">
+    <h1 class="display-4">Categories</h1>
+</div>
+<hr>
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+
+
+                <h6 class="card-text">@Html.DisplayFor(modelItem => item.Description)</h6>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </div>
+        </div>
+
+
+
+    }
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div class="btn-block">
+            <h3>
+                <a asp-action="Create">Create New</a>
+            </h3>
+        </div>
+    </div>
+
+</div>
+
+

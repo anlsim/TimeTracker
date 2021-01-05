@@ -1,0 +1,67 @@
+﻿@model IEnumerable<LWTechTaskTimeTracker.Models.CompletedTask>
+
+@{
+    ViewData["Title"] = "History";
+}
+
+
+
+<div class="text-center">
+    <div class="btn-block">
+        <h1 class="display-4">History</h1>
+    </div>
+
+
+
+    <table class="table">
+
+
+        @{
+            var completed = 0;
+            var notCompleted = 0;
+            foreach (var item in Model)
+            {
+                if (item.IsActive)
+                {
+                    completed++;
+
+                }
+                else if (!item.IsActive)
+                {
+                    notCompleted++;
+                }
+
+
+
+            }
+            if (completed == 0 && notCompleted == 0)
+            {
+                <tr>
+                            <td>
+                                <h3>You dont have any tasks log yet</h3>
+                                <div class="btn-block">
+                                    <h3>
+                                       <a  asp-area="" asp-controller="CompletedTasks" asp-action="Create">Create a new Task</a>
+                                    </h3>
+                                </div>
+
+                            </td>
+                </tr>
+
+            }
+            else
+            {
+            <tr>
+                <td>
+                    <h3>You have completed: @completed Tasks!</h3>
+                </td>
+                <td>
+                    <h3>You still need to complete: @notCompleted Tasks!</h3>
+                </td>
+
+            </tr>
+                }
+            }
+
+    </table>
+</div>

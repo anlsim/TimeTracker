@@ -1,0 +1,66 @@
+﻿@model IEnumerable<LWTechTaskTimeTracker.Models.ReminderMessage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <div class="btn-block">
+        <h1 class="display-4">Reminder Messages</h1>
+    </div>
+
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.dateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>
+                @*TODO adding additional fields*@
+                <th>
+                    @Html.DisplayNameFor(model => model.completedTask)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.completedTask.Description)
+                        @*TODO not sure if I can dsiplay 2 props in one td
+                        @Html.DisplayFor(modelItem => item.completedTask.dateTime)
+                        *@
+                    </td>
+                    <td>
+                        @*TODO should edit be an option?*@
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr>
+
+ <div class="btn-block">
+     <h3>
+         <a asp-action="Create">Create New</a>
+     </h3>
+ </div>
+
+
+
