@@ -7,25 +7,33 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LWTechTaskTimeTracker.Data;
 using LWTechTaskTimeTracker.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace LWTechTaskTimeTracker.API
 {
+
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CompletedTasksController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public CompletedTasksController(ApplicationDbContext context)
+        public CompletedTasksController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/CompletedTasks
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CompletedTask>>> GetCompletedTask()
         {
-            return await _context.CompletedTask.ToListAsync();
+            var user = await _userManager.GetUserAsync(User);
+
+            return await _context.CompletedTask.Where(u => u.category.User.Id == user.Id).ToListAsync();
         }
 
         // GET: api/CompletedTasks/5
