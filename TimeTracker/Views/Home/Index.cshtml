@@ -2,30 +2,27 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="btn-block">
+    <h1 class="display-4">Welcome to Task Time Tracker</h1>
+</div>
 <div class="container text-center">
-    <h2>Welcome to Task Time Tracker</h2>
-
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/homeImage.jpg" alt="Image">
-            <div class="carousel-caption">
-            </div>
-        </div>
-    </div>
+    
 
 
     <br >
     <div class=" row">
         <div class="col-sm-6">
             <a class="text-dark" asp-area="" asp-controller="CompletedTasks" asp-action="Index">
-                <div class=" jumbotron bg-dark-turquoise">
-                    <h2>Add task to complete</h2>
+                <div class=" jumbotron bg-tea-green">
+                    <i class="bi bi-list-check" style="font-size: 6rem"></i>
+                    <h2>    Add task to complete</h2>
                 </div>
             </a>
 
             <a class="text-dark" asp-area="" asp-controller="CompletedTasks" asp-action="History">
-                <div class=" jumbotron bg-dark-turquoise">
-                    <h2>Track your history</h2>
+                <div class=" jumbotron bg-wild-blue">
+                    <i class="bi bi-file-earmark-bar-graph" style="font-size: 6rem"></i>
+                    <h2>  Track your history</h2>
                 </div>
             </a>
         </div>
@@ -33,15 +30,17 @@
         <div class="col-sm-6">
 
             <a class="text-dark" asp-area="" asp-controller="Categories" asp-action="Index">
-                <div class=" jumbotron bg-dark-turquoise">
-                    <h2>Add new category</h2>
+                <div class=" jumbotron bg-wild-blue">
+                    <i class="bi bi-tag" style="font-size: 6rem"></i>
+                    <h2>  Add new category</h2>
 
                 </div>
             </a>
 
             <a class="text-dark" asp-area="" asp-controller="ReminderMessages" asp-action="Index">
-                <div class=" jumbotron bg-dark-turquoise">
-                    <h2>Reminder messages</h2>
+                <div class=" jumbotron bg-tea-green">
+                    <i class="bi bi-bell" style="font-size: 6rem"></i>
+                    <h2> Reminder messages</h2>
                 </div>
             </a>
         </div>

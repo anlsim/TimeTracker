@@ -22,8 +22,8 @@
                 <h6 class="card-text">@Html.DisplayFor(modelItem => item.Description)</h6>
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
                 </td>
             </div>
         </div>
@@ -37,7 +37,7 @@
     <div class="col-md-4">
         <div class="btn-block">
             <h3>
-                <a asp-action="Create">Create New</a>
+                <a asp-action="Create"><i class="bi bi-plus-circle"></i> Add Category</a>
             </h3>
         </div>
     </div>

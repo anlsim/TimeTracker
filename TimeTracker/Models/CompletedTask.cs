@@ -12,6 +12,7 @@ namespace LWTechTaskTimeTracker.Models
 
         public int Id { get; set; }
 
+        [Display(Name = "Category")]
         public Category category { get; set; }
         [Required]
         [Display(Name = "Task")]
@@ -24,7 +25,7 @@ namespace LWTechTaskTimeTracker.Models
             return Id.ToString() + " " + Description;
         }
         public IdentityUser User { get; set; }
-        [Display(Name = "Completed ?")]
+        [Display(Name = "Completed")]
         public bool IsActive { get; set; }
     }
 }

@@ -2,11 +2,11 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 :root {
-    --queen-blue: #587291;
-    --blue-green: #2f97c1;
-    --dark-turquoise: #1ccad8;
-    --celeste: #a2f6ec;
-    --honeydew: #ebfef4;
+    --nyanza: #E4F0D0;
+    --slate-gray: #738290;
+    --wild-blue: #8CA4CF;
+    --floral-white: #FFFCF7;
+    --tea-green: #C5DABE;
 }
 a.navbar-brand {
   white-space: normal;
@@ -16,28 +16,34 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #738290;
 }
-.bg-dark-turquoise {
-    background-color: #1ccad8 !important;
+.bg-wild-blue {
+    background-color: #8CA4CF !important;
 }
-.bg-queen-blue{
-    background-color: #587291 !important;
+.bg-nyanza {
+    background-color: #E4F0D0 !important;
 }
-.bg-honeydew {
-    background-color: #ebfef4 !important;
+.bg-tea-green {
+    background-color: #C5DABE !important;
 }
-.bg-celeste {
-    background-color: #a2f6ec !important;
+.bg-floral-white {
+    background-color: #FFFCF7 !important;
 }
-.bg-blue-green {
-    background-color: #2f97c1 !important;
+.bg-slate-gray: {
+    background-color: #738290 !important;
 }
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #FFFCF7;
+    background-color: #8CA4CF;
+    border-color: #8CA4CF;
 }
+    .btn-primary:hover {
+        color: #FFFCF7;
+        background-color: #738290;
+        border-color: #738290;
+    }
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
@@ -71,9 +77,22 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
+/* OTher css
+    ----------------------------------*/
+.iconAling::before {
+    vertical-align: inherit;
+    font-size: 250px;
+    color: #8CA4CF;
+}
+
+.iconTrash::before {
+    vertical-align: inherit;
+    font-size: 250px;
+    color: #c5dabe;
+}
+    /* Sticky footer styles
 -------------------------------------------------- */
-html {
+    html {
   position: relative;
   min-height: 100%;
 }

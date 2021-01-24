@@ -4,42 +4,41 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-<center>
-
-    <h4>Reminder Message</h4>
-</center>
+<div class="btn-block">
+    <h1 class="display-4">Edit Reminder Message</h1>
+</div>
 
    <hr />
-    <div class="row">
-    <div class="col-lg-6 col-md-12">
-        <img src="https://pngimage.net/wp-content/uploads/2018/05/edital-png.png" class="img-rounded" alt="Cinque Terre">
+   <div class="row">
+       <div class="col-lg-3 col-md-12">
+           <i class="bi bi-pencil-square iconAling"></i>
+       </div>
+       <div class="col-lg-4 col-md-12">
+           <form asp-action="Edit">
+               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+               <input type="hidden" asp-for="Id" />
+               <div class="form-group">
+                   <label asp-for="dateTime" class="control-label"></label>
+                   <input asp-for="dateTime" class="form-control" />
+                   <span asp-validation-for="dateTime" class="text-danger"></span>
+               </div>
+               <div class="form-group">
+                   <label asp-for="Message" class="control-label"></label>
+                   <input asp-for="Message" class="form-control" />
+                   <span asp-validation-for="Message" class="text-danger"></span>
+               </div>
+               <div class="form-group">
+                   <input type="submit" value="Save" class="btn btn-primary" />
+               </div>
+           </form>
+       </div>
+       <hr />
+       <div>
+           <a asp-action="Index">Back to List</a>
+       </div>
+   </div>
 
-    </div>
-    <div class="col-lg-4 col-md-12">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="dateTime" class="control-label"></label>
-                <input asp-for="dateTime" class="form-control" />
-                <span asp-validation-for="dateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Message" class="control-label"></label>
-                <input asp-for="Message" class="form-control" />
-                <span asp-validation-for="Message" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+    
 
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

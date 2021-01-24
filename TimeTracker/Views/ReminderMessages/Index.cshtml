@@ -4,12 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
+<div>
     <div class="btn-block">
         <h1 class="display-4">Reminder Messages</h1>
     </div>
 
-    <hr>
 
     <table class="table">
         <thead>
@@ -40,14 +39,11 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.completedTask.Description)
                         @*TODO not sure if I can dsiplay 2 props in one td
-                        @Html.DisplayFor(modelItem => item.completedTask.dateTime)
+                            @Html.DisplayFor(modelItem => item.completedTask.dateTime)
                         *@
                     </td>
                     <td>
-                        @*TODO should edit be an option?*@
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>
             }
@@ -58,7 +54,7 @@
 
  <div class="btn-block">
      <h3>
-         <a asp-action="Create">Create New</a>
+         <a asp-action="Create"><i class="bi bi-plus-circle"></i> Add Reminder message</a>
      </h3>
  </div>
 

@@ -18,7 +18,6 @@ namespace LWTechTaskTimeTracker.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-
         public CompletedTasksController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
@@ -188,9 +187,10 @@ namespace LWTechTaskTimeTracker.Controllers
         public async Task<IActionResult> History()
         {
             var user = await _userManager.GetUserAsync(User);
-
             return View(await _context.CompletedTask.Where(u => u.category.User.Id == user.Id).ToListAsync());
             
         }
+
+        
     }
 }
