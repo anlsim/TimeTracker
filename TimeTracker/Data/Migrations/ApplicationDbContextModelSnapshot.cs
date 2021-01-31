@@ -26,6 +26,9 @@ namespace LWTechTaskTimeTracker.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -217,42 +220,6 @@ namespace LWTechTaskTimeTracker.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "3f9b0d15-de9b-4725-b2d2-6da825cb7abc",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "5b0ee966-c55c-4ded-82cc-718d55cd5fe2",
-                            Email = "john@lwtech.edu",
-                            EmailConfirmed = true,
-                            LockoutEnabled = true,
-                            NormalizedEmail = "JOHN@LWTECH.EDU",
-                            NormalizedUserName = "JOHN@LWTECH.EDU",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO2ea66cY0CYbq+ymD3JzAA+8EmDbG/0z1se4I/FHDqpVt3HVcCB77hrfG1pkz/nLw==",
-                            PhoneNumber = "1231230202",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "c354cda4-8e6d-4f21-86f3-8aa81f312777",
-                            TwoFactorEnabled = false,
-                            UserName = "john@lwtech.edu"
-                        },
-                        new
-                        {
-                            Id = "674ed0e-dc9e-45af-bbfa-85a9ee0e1abc",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "42c1cbc7-cbf2-45ea-be51-15a5bb829943",
-                            Email = "maria@lwtech.edu",
-                            EmailConfirmed = true,
-                            LockoutEnabled = true,
-                            NormalizedEmail = "MARIA@LWTECH.EDU",
-                            NormalizedUserName = "MARIA@LWTECH.EDU",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIGxeJLIHal8XlZVA4rclarG4iX0fgdW3fv3+idWrEPdFNjgG21uMbemD9HTF30vOQ==",
-                            PhoneNumber = "2062220000",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "b56693df-cee1-468a-b8be-085398086f31",
-                            TwoFactorEnabled = false,
-                            UserName = "maria@lwtech.edu"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>

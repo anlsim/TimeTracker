@@ -12,10 +12,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LWTechTaskTimeTracker.Controllers
 {
-    [Authorize] 
+    [Authorize]
     public class CategoriesController : Controller
     {
-        
+
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
@@ -26,12 +26,12 @@ namespace LWTechTaskTimeTracker.Controllers
         }
 
         // GET: Categories
-        
+
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
             return View(await _context.Category.Where(u => u.User.Id == user.Id).ToListAsync());
-            
+
         }
 
         // GET: Categories/Details/5
@@ -55,7 +55,7 @@ namespace LWTechTaskTimeTracker.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
-        
+
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace LWTechTaskTimeTracker.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Color")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace LWTechTaskTimeTracker.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Color")] Category category)
         {
             if (id != category.Id)
             {

@@ -1,19 +1,16 @@
 ﻿@model LWTechTaskTimeTracker.Models.Category
 
-@{
-    ViewData["Title"] = "Create";
-}
+@{ ViewData["Title"] = "Create"; }
 <div class="btn-block">
     <h1 class="display-4">Create Category</h1>
 </div>
 
 <hr />
 <div class="row">
-    <div class="col-lg-4 col-md-12">
-        <img src="https://img.icons8.com/clouds/2x/survey.png" class="img-rounded" alt="Cinque Terre">
-
+    <div class="col-lg-3 col-md-12">
+        <i class="bi bi-folder-plus iconAling"></i>
     </div>
-    <div class="col-lg-8 col-md-12">
+    <div class="col-lg-3 col-md-12">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -26,6 +23,14 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                <input asp-for="Color" type="color" name="Color" id="Color" class="form-control" value="#8CA4CF" aria-invalid="false">
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
