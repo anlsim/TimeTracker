@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Categories";
+    int counter = 0;
 }
 
 
@@ -10,38 +11,50 @@
     <h1 class="display-4">Categories</h1>
 </div>
 <hr>
-
-<div class="card-columns">
-    @foreach (var item in Model)
-    {
-        <div class="card">
-            <div class="card-body" style="background: @item.Color">
-                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+<div class="container">
 
 
-                <h6 class="card-text">@Html.DisplayFor(modelItem => item.Description)</h6>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            if (counter != 0 && counter % 4 == 0)
+            {
+            @:</div>
+            @:<div class="row">
+            }
+            <div class="col-sm">
+                <div class="card" style="width: 14rem;">
+                    <div class="card-body"  style="background: @item.Color">
+                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
 
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
-                </td>
+
+                        <h6 class="card-text">@Html.DisplayFor(modelItem => item.Description)</h6>
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil"></i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </div>
+                </div>
+
+
+            </div>
+            counter++;
+        }
+
+
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="btn-block">
+                <h3>
+                    <a asp-action="Create"><i class="bi bi-plus-circle"></i> Add Category</a>
+                </h3>
             </div>
         </div>
 
-
-
-    }
-</div>
-<hr>
-<div class="row">
-    <div class="col-md-4">
-        <div class="btn-block">
-            <h3>
-                <a asp-action="Create"><i class="bi bi-plus-circle"></i> Add Category</a>
-            </h3>
-        </div>
     </div>
-
-</div>
 
 
