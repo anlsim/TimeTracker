@@ -19,7 +19,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Message)
                 </th>
-                @*TODO adding additional fields*@
                 <th>
                     @Html.DisplayNameFor(model => model.completedTask)
                 </th>
@@ -38,9 +37,7 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.completedTask.Description)
-                        @*TODO not sure if I can dsiplay 2 props in one td
-                            @Html.DisplayFor(modelItem => item.completedTask.dateTime)
-                        *@
+                    
                     </td>
                     <td>
                         <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
