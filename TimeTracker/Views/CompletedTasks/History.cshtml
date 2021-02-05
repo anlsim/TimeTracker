@@ -6,37 +6,28 @@
 }
 
 
-
-
 <div class="text-center">
     <div class="btn-block">
         <h1 class="display-4">Tasks History</h1>
     </div>
 
-
-
     <table class="table">
 
-
         @{
-            var label = "";
             var completed = 0;
             var notCompleted = 0;
             foreach (var item in Model)
             {
                 if (item.IsActive)
                 {
-                    completed++;
 
+                    completed++;
 
                 }
                 else if (!item.IsActive)
                 {
                     notCompleted++;
                 }
-
-
-
             }
             if (completed == 0 && notCompleted == 0)
             {
@@ -48,7 +39,6 @@
                                 <a asp-area="" asp-controller="CompletedTasks" asp-action="Create">Create a new Task</a>
                             </h3>
                         </div>
-
                     </td>
                 </tr>
 
@@ -57,7 +47,6 @@
             {
                 <canvas id="myChart"></canvas>
 
-
                 @section Scripts{
 
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -65,11 +54,8 @@
 
                     var ctx = document.getElementById('myChart').getContext('2d');
                     var chart = new Chart(ctx, {
-                        // The type of chart we want to create
                         type: 'pie',
-
-                      // The data for our dataset
-                    data: {
+                        data: {
 
                         labels: [ 'Completed','Not Completed'],
                         datasets: [{
@@ -78,15 +64,16 @@
                             borderColor: ['#C5DABE', '#8CA4CF',],
                             data: [@completed, @notCompleted]
                         }]
-                    },
+                        },
+                    }
 
-            }
-
-            );
+                    );
 
                     </script>
                 }
             }
+            <a class="btn btn-primary" asp-action="Index">Back to List</a>
+            
         }
 
     </table>
